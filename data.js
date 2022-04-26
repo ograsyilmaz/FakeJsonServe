@@ -1,4 +1,5 @@
 const { faker } = require('@faker-js/faker');
+const fs = require("fs");
 
 module.exports = ()=>{
     const data ={
@@ -17,6 +18,13 @@ module.exports = ()=>{
 		City:faker.address.city()
        })
    }
+
+
+   fs.writeFileSync(
+    "./db.json",
+    JSON.stringify({ users: data.products })
+  );
+
 
    return data
 }
